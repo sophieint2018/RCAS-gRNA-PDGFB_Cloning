@@ -1,13 +1,9 @@
-import matplotlib.pyplot as plt
-import numpy as np
 import pandas as pd
 from Bio import SeqIO
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
 from Bio.SeqFeature import SeqFeature, FeatureLocation
 import os
-import glob
-import copy
 import datetime
 
 
