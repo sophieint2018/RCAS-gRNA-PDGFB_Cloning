@@ -8,6 +8,8 @@ from Bio.SeqFeature import SeqFeature, FeatureLocation
 import os
 import glob
 import copy
+import datetime
+
 
 df = pd.DataFrame()
 sgRNA_dic = {}
@@ -28,6 +30,7 @@ def convert_pd_to_dic():
     """
     Converts pandas dataframes into a dictionary. 
     """
+    global sgRNA_dic
     sgRNA_dic = pd.Series(
         df["sgRNA Sequence (5'-3')"].values, index=df["Gene"]).to_dict()
     # print(sgRNA_dic)
@@ -71,7 +74,7 @@ def modify_sequence_with_features(pDONR_sequence, BbsIoverhang, sgRNA, pDONR_fea
     # Modify the sequence (e.g., add the sgRNA and BbsI overhang)
     modified_sequence, index = modify_sequence(
         pDONR_sequence, BbsIoverhang, sgRNA)
-    print("Modified the sequence.")
+    print("Modified the sequence for {} plasmid map.".format(key))
 
     # Calculate the difference in length
     sequence_length_diff = len(modified_sequence) - len(pDONR_sequence)
@@ -83,14 +86,16 @@ def modify_sequence_with_features(pDONR_sequence, BbsIoverhang, sgRNA, pDONR_fea
             feature, sequence_length_diff, index)
         updated_features.append(updated_feature)
 
-    print("Updated features.")
+    print("Updated features for the {} plasmid map.".format(key))
 
     # Add in the gRNA feature
     sgRNA_featureLoc = FeatureLocation(index, index + 20, strand=1)
     sgRNA_feature = SeqFeature(
-        location=sgRNA_featureLoc, type="misc_feature", qualifiers={"label": "{} sgRNA".format(key), "color": "blue", "Description": "Cloned {} sgRNA, mouse genome".format(key)})
+        location=sgRNA_featureLoc, type="misc_feature", qualifiers={"label": "{} sgRNA".format(key),
+                                                                    "color": "blue",
+                                                                    "Description": "Cloned {} sgRNA, mouse genome".format(key), })
     updated_features.append(sgRNA_feature)
-    print("Added the {} sgRNA".format(key))
+    print("Added the {} sgRNA feature to the plasmid map.".format(key))
 
     return modified_sequence, updated_features
 
@@ -116,7 +121,9 @@ def check(pDONR_sequence, pDONR_features):
 def main(gRNASequences_filename: str, pDONRSequenceMap_filename: str):
     # convert excel to pd
     convert_excel_to_pd(gRNASequences_filename)
+    print(df)
     convert_pd_to_dic()
+    print(sgRNA_dic)
 
     # import pDONR sequence
     pDONRSequenceMap_path = os.path.join(
@@ -132,31 +139,33 @@ def main(gRNASequences_filename: str, pDONRSequenceMap_filename: str):
     # check with an existing plasmid map
     check(pDONR_sequence, pDONR_features)
 
-    key = "test"
-    # modify sequence
-    sgRNA = "TCAATCGATGATCTCCCCAT"
-    pDONRsgRNAPDGFB_Sequence, pDONRsgRNAPDGFB_modifiedfeatures = modify_sequence_with_features(
-        pDONR_sequence, BbsIoverhang, sgRNA, pDONR_features, key)
-    print("Modified sequence.")
+    for key in sgRNA_dic.keys():
+        # modify sequence
+        sgRNA = sgRNA_dic[key]
+        pDONRsgRNAPDGFB_Sequence, pDONRsgRNAPDGFB_modifiedfeatures = modify_sequence_with_features(
+            pDONR_sequence, BbsIoverhang, sgRNA, pDONR_features, key)
+        print("Modified the sequence for {} plasmid map.".format(key))
 
-    # create a SeqRecord object
-    # pDONRsgRNAPDGFB_SequenceObject = copy.copy(pDONR_SequenceMap)
-    # pDONRsgRNAPDGFB_SequenceObject.seq = Seq(pDONRsgRNAPDGFB_Sequence)
-    pDONRsgRNAPDGFB_SequenceObject = Seq(pDONRsgRNAPDGFB_Sequence)
-    pDONRsgRNAPDGFB_SequenceMap = SeqRecord(
-        pDONRsgRNAPDGFB_SequenceObject, id=key, description=key, annotations={"molecule_type": "DNA"})
-    pDONRsgRNAPDGFB_SequenceMap.features = pDONRsgRNAPDGFB_modifiedfeatures
+        # create a SeqRecord object
+        # pDONRsgRNAPDGFB_SequenceObject = copy.copy(pDONR_SequenceMap)
+        # pDONRsgRNAPDGFB_SequenceObject.seq = Seq(pDONRsgRNAPDGFB_Sequence)
+        pDONRsgRNAPDGFB_SequenceObject = Seq(pDONRsgRNAPDGFB_Sequence)
+        pDONRsgRNAPDGFB_SequenceMap = SeqRecord(
+            pDONRsgRNAPDGFB_SequenceObject, id=key, description=key, annotations={"molecule_type": "DNA",
+                                                                                  "topology": "circular",
+                                                                                  "date": datetime.datetime.now().strftime("%Y-%m-%d")})
+        pDONRsgRNAPDGFB_SequenceMap.features = pDONRsgRNAPDGFB_modifiedfeatures
 
-    # export to genbank
-    output_folder = "FASTA_output"
-    pDONRsgRNAPDGFB_filename = "pDONR-U6-{}gRNA-PGKpuro2APDGFB.gb".format(
-        key)
-    output_filepath = os.path.join(output_folder, pDONRsgRNAPDGFB_filename)
-    # with open(output_filepath, "w") as output_handle:
-    #     SeqIO.write(pDONRsgRNAPDGFB_SequenceObject, output_handle, "genbank")
-    with open(output_filepath, "w") as output_handle:
-        SeqIO.write(pDONRsgRNAPDGFB_SequenceMap, output_handle, "genbank")
-    print("Exported genbank file.")
+        # export to genbank
+        output_folder = "FASTA_output"
+        pDONRsgRNAPDGFB_filename = "pDONR-U6-{}gRNA-PGKpuro2APDGFB.gb".format(
+            key)
+        output_filepath = os.path.join(output_folder, pDONRsgRNAPDGFB_filename)
+        # with open(output_filepath, "w") as output_handle:
+        #     SeqIO.write(pDONRsgRNAPDGFB_SequenceObject, output_handle, "genbank")
+        with open(output_filepath, "w") as output_handle:
+            SeqIO.write(pDONRsgRNAPDGFB_SequenceMap, output_handle, "genbank")
+        print("Exported genbank file for {}.\n".format(key))
 
 
 if __name__ == "__main__":

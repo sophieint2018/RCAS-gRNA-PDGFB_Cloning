@@ -1,7 +1,7 @@
-LOCUS       test                    5006 bp    DNA     circular UNK 01-JAN-1980
-DEFINITION  test.
-ACCESSION   test
-VERSION     test
+LOCUS       BRCA2                   5006 bp    DNA     circular UNK 01-JAN-1980
+DEFINITION  BRCA2.
+ACCESSION   BRCA2
+VERSION     BRCA2
 KEYWORDS    .
 SOURCE      .
   ORGANISM  .
@@ -159,9 +159,9 @@ FEATURES             Location/Qualifiers
                      /label="Primer 10"
                      /note="color: black; sequence: GGGAAACGCCTGGTATCTTT"
      misc_feature    978..997
-                     /label="test sgRNA"
+                     /label="BRCA2 sgRNA"
                      /color="blue"
-                     /Description="Cloned test sgRNA, mouse genome"
+                     /Description="Cloned BRCA2 sgRNA, mouse genome"
 ORIGIN
         1 ctttcctgcg ttatcccctg attctgtgga taaccgtatt accgcctttg agtgagctga
        61 taccgctcgc cgcagccgaa cgaccgagcg cagcgagtca gtgagcgagg aagcggaaga
@@ -179,7 +179,7 @@ ORIGIN
       781 tagagagata attagaatta atttgactgt aaacacaaag atattagtac aaaatacgtg
       841 acgtagaaag taataatttc ttgggtagtt tgcagtttta aaattatgtt ttaaaatgga
       901 ctatcatatg cttaccgtaa cttgaaagta tttcgatttc ttggctttat atatcttgtg
-      961 gaaaggacga aacaccgtca atcgatgatc tccccatgtt ttagagctag aaatagcaag
+      961 gaaaggacga aacaccgtaa gtaccgcttc taaggaggtt ttagagctag aaatagcaag
      1021 ttaaaataag gctagtccgt tatcaacttg aaaaagtggc accgagtcgg tgcttttttt
      1081 ggatccaatt ctaccgggta ggggaggcgc ttttcccaag gcagtctgga gcatgcgctt
      1141 tagcagcccc gctgggcact tggcgctaca caagtggcct ctggcctcgc acacattcca
