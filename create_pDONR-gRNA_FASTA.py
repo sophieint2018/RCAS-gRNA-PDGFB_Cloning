@@ -61,6 +61,10 @@ def adjust_feature_location(feature, offset, index):
 
 
 def modify_sequence(sequence: str, overhang: str, sgRNA: str):
+    """
+    Modify the string by deleting the restriction enzyme poprtion and replaces it
+    with the 20 bp sgRNA sequence.
+    """
     index = sequence.index(overhang)
     new_sequence = sequence[:index] + sgRNA + \
         sequence[(index + len(overhang)):]
@@ -69,7 +73,8 @@ def modify_sequence(sequence: str, overhang: str, sgRNA: str):
 
 def modify_sequence_with_features(pDONR_sequence, BbsIoverhang, sgRNA, pDONR_features, key):
     """
-    Modify the sequence and adjust the features based on the sequence modification.
+    Modify the sequence and adjust the features based on the sequence modification. Additionally
+    adds a feature for the 20 bp sgRNA sequence.
     """
     # Modify the sequence (e.g., add the sgRNA and BbsI overhang)
     modified_sequence, index = modify_sequence(
@@ -101,6 +106,9 @@ def modify_sequence_with_features(pDONR_sequence, BbsIoverhang, sgRNA, pDONR_fea
 
 
 def check(pDONR_sequence, pDONR_features):
+    """
+    Uses a previously made plasmid map to check if the algorithm is working correctly.
+    """
     ARID1A_sgRNA = "TCAATCGATGATCTCCCCAT"
     ARID1APDGFB_SequenceMap_filename = "pDONR-U6-ARID1AgRNA-PGKpuro2APDGFB.fa"
     ARID1APDGFBSequenceMap_path = os.path.join(
@@ -121,9 +129,7 @@ def check(pDONR_sequence, pDONR_features):
 def main(gRNASequences_filename: str, pDONRSequenceMap_filename: str):
     # convert excel to pd
     convert_excel_to_pd(gRNASequences_filename)
-    print(df)
     convert_pd_to_dic()
-    print(sgRNA_dic)
 
     # import pDONR sequence
     pDONRSequenceMap_path = os.path.join(
@@ -133,12 +139,10 @@ def main(gRNASequences_filename: str, pDONRSequenceMap_filename: str):
     pDONR_sequence = str(pDONR_SeqRecord.seq).lower()
     pDONR_features = pDONR_SeqRecord.features
 
-    # print the pDONR sequence
-    # print(pDONR_sequence)
-
     # check with an existing plasmid map
     check(pDONR_sequence, pDONR_features)
 
+    # iterates through the dictionary to make plasmid maps for all the sgRNA sequences provided.
     for key in sgRNA_dic.keys():
         # modify sequence
         sgRNA = sgRNA_dic[key]
@@ -147,8 +151,6 @@ def main(gRNASequences_filename: str, pDONRSequenceMap_filename: str):
         print("Modified the sequence for {} plasmid map.".format(key))
 
         # create a SeqRecord object
-        # pDONRsgRNAPDGFB_SequenceObject = copy.copy(pDONR_SequenceMap)
-        # pDONRsgRNAPDGFB_SequenceObject.seq = Seq(pDONRsgRNAPDGFB_Sequence)
         pDONRsgRNAPDGFB_SequenceObject = Seq(pDONRsgRNAPDGFB_Sequence)
         pDONRsgRNAPDGFB_SequenceMap = SeqRecord(
             pDONRsgRNAPDGFB_SequenceObject, id=key, description=key, annotations={"molecule_type": "DNA",
@@ -161,8 +163,6 @@ def main(gRNASequences_filename: str, pDONRSequenceMap_filename: str):
         pDONRsgRNAPDGFB_filename = "pDONR-U6-{}gRNA-PGKpuro2APDGFB.gb".format(
             key)
         output_filepath = os.path.join(output_folder, pDONRsgRNAPDGFB_filename)
-        # with open(output_filepath, "w") as output_handle:
-        #     SeqIO.write(pDONRsgRNAPDGFB_SequenceObject, output_handle, "genbank")
         with open(output_filepath, "w") as output_handle:
             SeqIO.write(pDONRsgRNAPDGFB_SequenceMap, output_handle, "genbank")
         print("Exported genbank file for {}.\n".format(key))
