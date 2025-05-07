@@ -32,7 +32,7 @@ def convert_pd_to_dic():
     # print(sgRNA_dic)
 
 
-def adjust_feature_location(feature, offset, index):
+def adjust_feature_location(feature: SeqFeature, offset: int, index: int):
     """
     Adjust the feature location based on the modification (insertions or deletions) in the sequence.
     """
@@ -67,7 +67,7 @@ def modify_sequence(sequence: str, overhang: str, sgRNA: str):
     return new_sequence, index
 
 
-def modify_sequence_with_features(pDONR_sequence, BbsIoverhang, sgRNA, pDONR_features, key):
+def modify_sequence_with_features(pDONR_sequence: str, BbsIoverhang: str, sgRNA: str, pDONR_features: list[SeqFeature], key: str):
     """
     Modify the sequence and adjust the features based on the sequence modification. Additionally
     adds a feature for the 20 bp sgRNA sequence.
@@ -101,7 +101,7 @@ def modify_sequence_with_features(pDONR_sequence, BbsIoverhang, sgRNA, pDONR_fea
     return modified_sequence, updated_features
 
 
-def check(pDONR_sequence, pDONR_features):
+def check(pDONR_sequence: str, pDONR_features: list[SeqFeature]):
     """
     Uses a previously made plasmid map to check if the algorithm is working correctly.
     """
