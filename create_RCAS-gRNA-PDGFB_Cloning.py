@@ -43,30 +43,29 @@ def modify_sequence(sequence: str, sgRNA: str, old_sgRNA: str):
 
 def check(RCAS_sequence: str, RCAS_features: list[SeqFeature], old_sgRNASequence: str):
     """
-    Uses a previously made plasmid map to check if the algorithm is working correctly.
+    Uses a previously made plasmid map (CDKN2A sgRNA) to check if the
+    algorithm is working correctly.
     """
     # Check the replacement sgRNA sequence is 20 bp
     if len(old_sgRNASequence) != 20:
         raise ValueError(
             "The inputted sgRNA sequence for the example map is the wrong length.")
 
-    ARID1A_sgRNA = "TCAATCGATGATCTCCCCAT".lower()
-    ARID1APDGFB_SequenceMap_filename = "RCASBP-Y DV_ARID1AgRNA_PGKpuro2APDGFB.fa"
-    ARID1APDGFBSequenceMap_path = os.path.join(
-        "supplementary_files", ARID1APDGFB_SequenceMap_filename)
-    ARID1APDGFB_SequenceMap = SeqIO.parse(ARID1APDGFBSequenceMap_path, "fasta")
-    ARID1APDGFB_SeqRecord = next(ARID1APDGFB_SequenceMap)
-    ARID1APDGFB_sequence = str(ARID1APDGFB_SeqRecord.seq).lower()
+    verif_sgRNA = "tggtgaagttcgtgcgatcc".lower()
+    verif_SequenceMap_filename = "0053 RCASBP-Y DV_CDKN2AgRNA_PGKpuro2APDGFB.fa"
+    verif_SequenceMap_path = os.path.join(
+        "supplementary_files", verif_SequenceMap_filename)
+    verif_SequenceMap = SeqIO.parse(verif_SequenceMap_path, "fasta")
+    SeqRecord = next(verif_SequenceMap)
+    verif_Sequence = str(SeqRecord.seq).lower()
 
     experimental_sequence, index = modify_sequence(
-        RCAS_sequence, ARID1A_sgRNA, old_sgRNASequence)
+        RCAS_sequence, verif_sgRNA, old_sgRNASequence)
 
-    print(len(experimental_sequence))
-    print(len(ARID1APDGFB_sequence))
-    # if ARID1APDGFB_sequence == experimental_sequence:
-    #     print("Algorithm passes check.")
-    # else:
-    #     raise ValueError("There is a problem with the algorithm.")
+    if verif_Sequence == experimental_sequence:
+        print("Algorithm passes check.")
+    else:
+        raise ValueError("There is a problem with the algorithm.")
 
 
 def main(gRNASequences_filename: str, RCAS_SequenceMap_filename: str, old_sgRNASequence: str):
