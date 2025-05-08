@@ -1,7 +1,7 @@
-LOCUS       NFE2L2                 14182 bp    DNA     circular UNK 01-JAN-1980
-DEFINITION  NFE2L2.
-ACCESSION   NFE2L2
-VERSION     NFE2L2
+LOCUS       CTSD                   14182 bp    DNA     circular UNK 01-JAN-1980
+DEFINITION  CTSD.
+ACCESSION   CTSD
+VERSION     CTSD
 KEYWORDS    .
 SOURCE      .
   ORGANISM  .
@@ -103,57 +103,9 @@ FEATURES             Location/Qualifiers
                      /label="RSV promoter"
                      /note="Rous sarcoma virus enhancer/promoter"
      misc_feature    7381..7400
-                     /label="ATR sgRNA"
-                     /color="blue"
-                     /Description="Cloned ATR sgRNA, mouse genome"
-     misc_feature    7381..7400
-                     /label="BAX sgRNA"
-                     /color="blue"
-                     /Description="Cloned BAX sgRNA, mouse genome"
-     misc_feature    7381..7400
-                     /label="BCL2 sgRNA"
-                     /color="blue"
-                     /Description="Cloned BCL2 sgRNA, mouse genome"
-     misc_feature    7381..7400
-                     /label="BET1 sgRNA"
-                     /color="blue"
-                     /Description="Cloned BET1 sgRNA, mouse genome"
-     misc_feature    7381..7400
-                     /label="BRCA1 sgRNA"
-                     /color="blue"
-                     /Description="Cloned BRCA1 sgRNA, mouse genome"
-     misc_feature    7381..7400
-                     /label="BRCA2 sgRNA"
-                     /color="blue"
-                     /Description="Cloned BRCA2 sgRNA, mouse genome"
-     misc_feature    7381..7400
-                     /label="CHEK1 sgRNA"
-                     /color="blue"
-                     /Description="Cloned CHEK1 sgRNA, mouse genome"
-     misc_feature    7381..7400
-                     /label="CHEK2 sgRNA"
-                     /color="blue"
-                     /Description="Cloned CHEK2 sgRNA, mouse genome"
-     misc_feature    7381..7400
-                     /label="CLU sgRNA"
-                     /color="blue"
-                     /Description="Cloned CLU sgRNA, mouse genome"
-     misc_feature    7381..7400
                      /label="CTSD sgRNA"
                      /color="blue"
                      /Description="Cloned CTSD sgRNA, mouse genome"
-     misc_feature    7381..7400
-                     /label="KEAP1 sgRNA"
-                     /color="blue"
-                     /Description="Cloned KEAP1 sgRNA, mouse genome"
-     misc_feature    7381..7400
-                     /label="MRE11A sgRNA"
-                     /color="blue"
-                     /Description="Cloned MRE11A sgRNA, mouse genome"
-     misc_feature    7381..7400
-                     /label="NFE2L2 sgRNA"
-                     /color="blue"
-                     /Description="Cloned NFE2L2 sgRNA, mouse genome"
 ORIGIN
         1 gccatttgac cattcaccac attggtgtgc acctgggttg atggccggac cgttgattcc
        61 ctgacgacta cgagcacctg catgaagcag aaggcttcat ttggtgaccc cgacgtgata
@@ -278,7 +230,7 @@ ORIGIN
      7201 ttaatttgac tgtaaacaca aagatattag tacaaaatac gtgacgtaga aagtaataat
      7261 ttcttgggta gtttgcagtt ttaaaattat gttttaaaat ggactatcat atgcttaccg
      7321 taacttgaaa gtatttcgat ttcttggctt tatatatctt gtggaaagga cgaaacaccg
-     7381 tggatccgcc agctactccc gttttagagc tagaaatagc aagttaaaat aaggctagtc
+     7381 atagatgtga acttgcgcag gttttagagc tagaaatagc aagttaaaat aaggctagtc
      7441 cgttatcaac ttgaaaaagt ggcaccgagt cggtgctttt tttggatcca attctaccgg
      7501 gtaggggagg cgcttttccc aaggcagtct ggagcatgcg ctttagcagc cccgctgggc
      7561 acttggcgct acacaagtgg cctctggcct cgcacacatt ccacatccac cggtaggcgc

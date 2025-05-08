@@ -5,6 +5,7 @@ from Bio.SeqRecord import SeqRecord
 from Bio.SeqFeature import SeqFeature, FeatureLocation
 import os
 import datetime
+import copy
 
 df = pd.DataFrame()
 sgRNA_dic = {}
@@ -30,10 +31,6 @@ def convert_pd_to_dic():
     # print(sgRNA_dic)
 
 
-def add_feature_for_sgRNA():
-    print()
-
-
 def modify_sequence(sequence: str, sgRNA: str, old_sgRNA: str):
     """
     Modify the string by deleting the existing 20 bp sgRNA sequence and replacing it
@@ -42,7 +39,7 @@ def modify_sequence(sequence: str, sgRNA: str, old_sgRNA: str):
     index = sequence.index(old_sgRNA)
     modified_sequence = sequence[:index] + sgRNA + \
         sequence[(index + len(old_sgRNA)):]
-    return modified_sequence, index
+    return modified_sequence.lower(), index
 
 
 def creat_new_sequence_map(sequence: str, sgRNA: str, old_sgRNA: str, RCAS_features: list[SeqFeature], sgRNA_identifier: str):
@@ -107,10 +104,13 @@ def main(gRNASequences_filename: str, RCAS_SequenceMap_filename: str, old_sgRNAS
 
     # iterates through the dictionary to make plasmid maps for all the sgRNA sequences provided.
     for sgRNA_identifier in sgRNA_dic.keys():
-        # modify sequence
+        # Modify sequence
         sgRNA = sgRNA_dic[sgRNA_identifier]
+
+        # Create the new sequence map
+        RCASfeatures_copy = copy.deepcopy(RCAS_features)
         RCASsgRNAPDGFB_Sequence, RCASsgRNAPDGFB_modifiedfeatures = creat_new_sequence_map(
-            RCAS_sequence, sgRNA, old_sgRNASequence, RCAS_features, sgRNA_identifier)
+            RCAS_sequence, sgRNA, old_sgRNASequence, RCASfeatures_copy, sgRNA_identifier)
         print("Modified the sequence for {} plasmid map.".format(sgRNA_identifier))
 
         # create a SeqRecord object
@@ -123,7 +123,7 @@ def main(gRNASequences_filename: str, RCAS_SequenceMap_filename: str, old_sgRNAS
 
         # export to genbank
         output_folder = "FASTA_output"
-        RCASsgRNAPDGFB_filename = "RCAS-U6-{}gRNA-PGKpuro2APDGFB.gb".format(
+        RCASsgRNAPDGFB_filename = "RCASBP-Y DV_{}gRNA_PGKpuro2APDGFB.gb".format(
             sgRNA_identifier)
         output_filepath = os.path.join(output_folder, RCASsgRNAPDGFB_filename)
         with open(output_filepath, "w") as output_handle:

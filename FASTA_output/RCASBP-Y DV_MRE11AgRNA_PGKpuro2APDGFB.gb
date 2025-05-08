@@ -103,50 +103,6 @@ FEATURES             Location/Qualifiers
                      /label="RSV promoter"
                      /note="Rous sarcoma virus enhancer/promoter"
      misc_feature    7381..7400
-                     /label="ATR sgRNA"
-                     /color="blue"
-                     /Description="Cloned ATR sgRNA, mouse genome"
-     misc_feature    7381..7400
-                     /label="BAX sgRNA"
-                     /color="blue"
-                     /Description="Cloned BAX sgRNA, mouse genome"
-     misc_feature    7381..7400
-                     /label="BCL2 sgRNA"
-                     /color="blue"
-                     /Description="Cloned BCL2 sgRNA, mouse genome"
-     misc_feature    7381..7400
-                     /label="BET1 sgRNA"
-                     /color="blue"
-                     /Description="Cloned BET1 sgRNA, mouse genome"
-     misc_feature    7381..7400
-                     /label="BRCA1 sgRNA"
-                     /color="blue"
-                     /Description="Cloned BRCA1 sgRNA, mouse genome"
-     misc_feature    7381..7400
-                     /label="BRCA2 sgRNA"
-                     /color="blue"
-                     /Description="Cloned BRCA2 sgRNA, mouse genome"
-     misc_feature    7381..7400
-                     /label="CHEK1 sgRNA"
-                     /color="blue"
-                     /Description="Cloned CHEK1 sgRNA, mouse genome"
-     misc_feature    7381..7400
-                     /label="CHEK2 sgRNA"
-                     /color="blue"
-                     /Description="Cloned CHEK2 sgRNA, mouse genome"
-     misc_feature    7381..7400
-                     /label="CLU sgRNA"
-                     /color="blue"
-                     /Description="Cloned CLU sgRNA, mouse genome"
-     misc_feature    7381..7400
-                     /label="CTSD sgRNA"
-                     /color="blue"
-                     /Description="Cloned CTSD sgRNA, mouse genome"
-     misc_feature    7381..7400
-                     /label="KEAP1 sgRNA"
-                     /color="blue"
-                     /Description="Cloned KEAP1 sgRNA, mouse genome"
-     misc_feature    7381..7400
                      /label="MRE11A sgRNA"
                      /color="blue"
                      /Description="Cloned MRE11A sgRNA, mouse genome"
