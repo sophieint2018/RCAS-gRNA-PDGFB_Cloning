@@ -30,18 +30,39 @@ def convert_pd_to_dic():
     # print(sgRNA_dic)
 
 
+def add_feature_for_sgRNA():
+    print()
+
+
 def modify_sequence(sequence: str, sgRNA: str, old_sgRNA: str):
     """
     Modify the string by deleting the existing 20 bp sgRNA sequence and replacing it
     with a new 20 bp sgRNA sequence.
     """
     index = sequence.index(old_sgRNA)
-    new_sequence = sequence[:index] + sgRNA + \
+    modified_sequence = sequence[:index] + sgRNA + \
         sequence[(index + len(old_sgRNA)):]
-    return new_sequence, index
+    return modified_sequence, index
 
 
-def check(RCAS_sequence: str, RCAS_features: list[SeqFeature], old_sgRNASequence: str):
+def creat_new_sequence_map(sequence: str, sgRNA: str, old_sgRNA: str, RCAS_features: list[SeqFeature], sgRNA_identifier: str):
+    # Modify the sequence (e.g. Change the sgRNA)
+    modified_sequence, index = modify_sequence(sequence, sgRNA, old_sgRNA)
+    print("Modified the sequence for {} plasmid map.".format(sgRNA_identifier))
+
+    # Add in the gRNA feature
+    sgRNA_featureLoc = FeatureLocation(index, index + 20, strand=1)
+    sgRNA_feature = SeqFeature(
+        location=sgRNA_featureLoc, type="misc_feature", qualifiers={"label": "{} sgRNA".format(sgRNA_identifier),
+                                                                    "color": "blue",
+                                                                    "Description": "Cloned {} sgRNA, mouse genome".format(sgRNA_identifier), })
+    RCAS_features.append(sgRNA_feature)
+    print("Added the {} sgRNA feature to the plasmid map.".format(sgRNA_identifier))
+
+    return modified_sequence, RCAS_features
+
+
+def check(RCAS_sequence: str, old_sgRNASequence: str):
     """
     Uses a previously made plasmid map (CDKN2A sgRNA) to check if the
     algorithm is working correctly.
@@ -59,7 +80,7 @@ def check(RCAS_sequence: str, RCAS_features: list[SeqFeature], old_sgRNASequence
     SeqRecord = next(verif_SequenceMap)
     verif_Sequence = str(SeqRecord.seq).lower()
 
-    experimental_sequence, index = modify_sequence(
+    experimental_sequence, features = modify_sequence(
         RCAS_sequence, verif_sgRNA, old_sgRNASequence)
 
     if verif_Sequence == experimental_sequence:
@@ -82,7 +103,32 @@ def main(gRNASequences_filename: str, RCAS_SequenceMap_filename: str, old_sgRNAS
     RCAS_features = RCAS_SeqRecord.features
 
     # check with an existing plasmid map
-    check(RCAS_sequence, RCAS_features, old_sgRNASequence)
+    check(RCAS_sequence, old_sgRNASequence)
+
+    # iterates through the dictionary to make plasmid maps for all the sgRNA sequences provided.
+    for sgRNA_identifier in sgRNA_dic.keys():
+        # modify sequence
+        sgRNA = sgRNA_dic[sgRNA_identifier]
+        RCASsgRNAPDGFB_Sequence, RCASsgRNAPDGFB_modifiedfeatures = creat_new_sequence_map(
+            RCAS_sequence, sgRNA, old_sgRNASequence, RCAS_features, sgRNA_identifier)
+        print("Modified the sequence for {} plasmid map.".format(sgRNA_identifier))
+
+        # create a SeqRecord object
+        RCASsgRNAPDGFB_SequenceObject = Seq(RCASsgRNAPDGFB_Sequence)
+        RCASsgRNAPDGFB_SequenceMap = SeqRecord(
+            RCASsgRNAPDGFB_SequenceObject, id=sgRNA_identifier, description=sgRNA_identifier, annotations={"molecule_type": "DNA",
+                                                                                                           "topology": "circular",
+                                                                                                           "date": datetime.datetime.now().strftime("%Y-%m-%d")})
+        RCASsgRNAPDGFB_SequenceMap.features = RCASsgRNAPDGFB_modifiedfeatures
+
+        # export to genbank
+        output_folder = "FASTA_output"
+        RCASsgRNAPDGFB_filename = "RCAS-U6-{}gRNA-PGKpuro2APDGFB.gb".format(
+            sgRNA_identifier)
+        output_filepath = os.path.join(output_folder, RCASsgRNAPDGFB_filename)
+        with open(output_filepath, "w") as output_handle:
+            SeqIO.write(RCASsgRNAPDGFB_SequenceMap, output_handle, "genbank")
+        print("Exported genbank file for {}.\n".format(sgRNA_identifier))
 
 
 if __name__ == "__main__":
