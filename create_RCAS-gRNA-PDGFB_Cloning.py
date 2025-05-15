@@ -43,6 +43,9 @@ def modify_sequence(sequence: str, sgRNA: str, old_sgRNA: str):
 
 
 def creat_new_sequence_map(sequence: str, sgRNA: str, old_sgRNA: str, RCAS_features: list[SeqFeature], sgRNA_identifier: str):
+    """
+    Creates a new sequence map object with the sequence containing the appropriate sgRNA sequence and labeled feature.
+    """
     # Modify the sequence (e.g. Change the sgRNA)
     modified_sequence, index = modify_sequence(sequence, sgRNA, old_sgRNA)
     print("Modified the sequence for {} plasmid map.".format(sgRNA_identifier))
