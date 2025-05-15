@@ -1,0 +1,250 @@
+LOCUS       ARID1B                  5006 bp    DNA     circular UNK 01-JAN-1980
+DEFINITION  ARID1B.
+ACCESSION   ARID1B
+VERSION     ARID1B
+KEYWORDS    .
+SOURCE      .
+  ORGANISM  .
+            .
+FEATURES             Location/Qualifiers
+     source          1..5006
+                     /note="/dnas_title=pDONR-U6gRNA-PGKpuro2APDGFB"
+                     /note="color: #ffffff"
+                     /organism="synthetic DNA construct"
+     primer_bind     92..109
+                     /label="Primer 3"
+                     /note="color: black; sequence: AGCGAGTCAGTGAGCGAG"
+     terminator      268..295
+                     /note="transcription terminator T2 from the E. coli rrnB
+                     gene"
+                     /note="/dnas_title=rrnB T2 terminator"
+                     /note="color: #ffffff"
+     terminator      387..473
+                     /gene="Escherichia coli rrnB"
+                     /label="Escherichia coli rrnB terminator"
+                     /note="transcription terminator T1 from the E. coli rrnB
+                     gene"
+                     /note="/dnas_title=rrnB T1 terminator"
+                     /note="color: #ffffff"
+     primer_bind     522..544
+                     /label="Primer 7"
+                     /note="color: black; sequence: CCCAGTCACGACGTTGTAAAACG"
+     primer_bind     536..553
+                     /label="Primer 5"
+                     /note="color: black; sequence: TGTAAAACGACGGCCAGT"
+     primer_bind     537..553
+                     /note="common sequencing primer, one of multiple similar
+                     variants"
+                     /note="/dnas_title=M13 fwd"
+                     /note="color: #a020f0; direction: RIGHT"
+     protein_bind    569..668
+                     /gene="mutant version of attL"
+                     /label="LR Clonase%E2%84%A2 binding site"
+                     /bound_moiety="LR Clonase%E2%84%A2"
+                     /note="recombination site for the Gateway%C2%AE LR
+                     reaction"
+                     /note="/dnas_title=attL1"
+                     /note="color: #31849b"
+     promoter        728..968
+                     /note="RNA polymerase III promoter for human U6 snRNA"
+                     /note="/dnas_title=U6 promoter"
+                     /note="color: #ffffff"
+     primer_bind     728..748
+                     /label="Primer 1"
+                     /note="color: black; sequence: GAGGGCCTATTTCCCATGATT"
+     primer_bind     899..918
+                     /label="Primer 4"
+                     /note="color: black; sequence: GACTATCATATGCTTACCGT"
+     misc_RNA        998..1073
+                     /note="guide RNA scaffold for the Streptococcus pyogenes
+                     CRISPR/Cas9 system"
+                     /note="/dnas_title=gRNA scaffold"
+                     /note="color: #a6acb3; direction: RIGHT"
+     promoter        1096..1595
+                     /note="mouse phosphoglycerate kinase 1 promoter"
+                     /note="/dnas_title=PGK promoter"
+                     /note="color: #ffffff"
+     primer_bind     complement(1131..1154)
+                     /label="Primer 9"
+                     /note="color: black; sequence: CAGCGGGGCTGCTAAAGCGCATGC"
+     primer_bind     1528..1547
+                     /label="Primer 8"
+                     /note="color: black; sequence: CATTCTGCACGCTTCAAAAG"
+     CDS             1635..2231
+                     /codon_start=1
+                     /gene="pac from Streptomyces alboniger"
+                     /product="puromycin N-acetyltransferase"
+                     /label="pac from Streptomyces alboniger"
+                     /note="confers resistance to puromycin"
+                     /note="/dnas_title=PuroR"
+                     /note="color: #993366"
+                     /translation="MTEYKPTVRLATRDDVPRAVRTLAAAFADYPATRHTVDPDRHIER
+                     VTELQELFLTRVGLDIGKVWVADDGAAVAVWTTPESVEAGAVFAEIGPRMAELSGSRLA
+                     AQQQMEGLLAPHRPKEPAWFLATVGVSPDHQGKGLGSAVVLPGVEAAERAGVPAFLETS
+                     APRNLPFYERLGFTVTADVEVPEGPRTWCMTRKPGA"
+     primer_bind     complement(1635..1654)
+                     /label="Primer 13"
+                     /note="color: black; sequence: GTGGGCTTGTACTCGGTCAT"
+     primer_bind     2131..2151
+                     /label="Primer 12"
+                     /note="color: black; sequence: GCAACCTCCCCTTCTACGAGC"
+     CDS             2250..2303
+                     /codon_start=1
+                     /product="2A peptide from%A0Thosea asigna virus capsid
+                     protein"
+                     /label="2A peptide from%A0Thosea asigna virus capsid pr"
+                     /note="Eukaryotic ribosomes fail to insert a peptide bond
+                     between the Gly and Pro residues, yielding separate
+                     polypeptides."
+                     /note="/dnas_title=T2A"
+                     /note="color: #993366"
+                     /translation="EGRGSLLTCGDVEENPGP"
+     CDS             3030..3056
+                     /codon_start=1
+                     /product="HA (human influenza hemagglutinin) epitope tag"
+                     /label="HA"
+                     /note="/dnas_title=HA"
+                     /note="color: #993366"
+                     /translation="YPYDVPDYA"
+     protein_bind    complement(3131..3230)
+                     /gene="mutant version of attL"
+                     /label="LR Clonase%E2%84%A2 binding site"
+                     /bound_moiety="LR Clonase%E2%84%A2"
+                     /note="recombination site for the Gateway%C2%AE LR
+                     reaction"
+                     /note="/dnas_title=attL2"
+                     /note="color: #31849b; direction: LEFT"
+     primer_bind     complement(3247..3266)
+                     /label="Primer 14"
+                     /note="color: black; sequence: TAATACGACTCACTATAGGG"
+     promoter        complement(3248..3266)
+                     /note="promoter for bacteriophage T7 RNA polymerase"
+                     /note="/dnas_title=T7 promoter"
+                     /note="color: #ffffff; direction: LEFT"
+     primer_bind     complement(3271..3287)
+                     /note="common sequencing primer, one of multiple similar
+                     variants"
+                     /note="/dnas_title=M13 rev"
+                     /note="color: #a020f0; direction: LEFT"
+     primer_bind     complement(3271..3287)
+                     /label="Primer 6"
+                     /note="color: black; sequence: CAGGAAACAGCTATGAC"
+     primer_bind     complement(3389..3408)
+                     /label="Primer 11"
+                     /note="color: black; sequence: ATGGCTCATAACACCCCTTG"
+     CDS             3400..4209
+                     /codon_start=1
+                     /gene="aph(3')-Ia"
+                     /product="aminoglycoside phosphotransferase"
+                     /label="aph(3')-Ia"
+                     /note="confers resistance to kanamycin in bacteria or G418
+                     (Geneticin%C2%AE) in eukaryotes"
+                     /note="/dnas_title=KanR"
+                     /note="color: #ccffcc"
+                     /translation="MSHIQRETSRPRLNSNMDADLYGYKWARDNVGQSGATIYRLYGKP
+                     DAPELFLKHGKGSVANDVTDEMVRLNWLTEFMPLPTIKHFIRTPDDAWLLTTAIPGKTA
+                     FQVLEEYPDSGENIVDALAVFLRRLHSIPVCNCPFNSDRVFRLAQAQSRMNNGLVDASD
+                     FDDERNGWPVEQVWKEMHKLLPFSPDSVVTHGDFSLDNLIFDEGKLIGCIDVGRVGIAD
+                     RYQDLAILWNCLGEFSPSLQKRLFQKYGIDNPDMNKLQFHLMLDEFF"
+     primer_bind     complement(3467..3486)
+                     /label="Primer 2"
+                     /note="color: black; sequence: ATCGCGAGCCCATTTATACC"
+     rep_origin      4356..4944
+                     /direction=RIGHT
+                     /note="high-copy-number ColE1/pMB1/pBR322/pUC origin of
+                     replication"
+                     /note="/dnas_title=ori"
+                     /note="color: #ffff00"
+     primer_bind     4845..4864
+                     /label="Primer 10"
+                     /note="color: black; sequence: GGGAAACGCCTGGTATCTTT"
+     misc_feature    978..997
+                     /label="ARID1B sgRNA"
+                     /color="blue"
+                     /Description="Cloned ARID1B sgRNA, mouse genome"
+ORIGIN
+        1 ctttcctgcg ttatcccctg attctgtgga taaccgtatt accgcctttg agtgagctga
+       61 taccgctcgc cgcagccgaa cgaccgagcg cagcgagtca gtgagcgagg aagcggaaga
+      121 gcgcccaata cgcaaaccgc ctctccccgc gcgttggccg attcattaat gcagctggca
+      181 cgacaggttt cccgactgga aagcgggcag tgagcgcaac gcaattaata cgcgtaccgc
+      241 tagccaggaa gagtttgtag aaacgcaaaa aggccatccg tcaggatggc cttctgctta
+      301 gtttgatgcc tggcagttta tggcgggcgt cctgcccgcc accctccggg ccgttgcttc
+      361 acaacgttca aatccgctcc cggcggattt gtcctactca ggagagcgtt caccgacaaa
+      421 caacagataa aacgaaaggc ccagttttcc gactgagcct ttcgttttat ttgatgcctg
+      481 gcagttccct actctcgcgt taacgctagc atggatgttt tcccagtcac gacgttgtaa
+      541 aacgacggcc agtcttaagc tcgggcccca aataatgatt ttattttgac tgatagtgac
+      601 ctgttcgttg caacaaattg atgagcaatg cttttttata atgccaactt tgtacaaaaa
+      661 agcaggctta atccagtttg gttagtaccg ggccctacgc gttactcgag ccaaggtcgg
+      721 gcaggaagag ggcctatttc ccatgattcc ttcatatttg catatacgat acaaggctgt
+      781 tagagagata attagaatta atttgactgt aaacacaaag atattagtac aaaatacgtg
+      841 acgtagaaag taataatttc ttgggtagtt tgcagtttta aaattatgtt ttaaaatgga
+      901 ctatcatatg cttaccgtaa cttgaaagta tttcgatttc ttggctttat atatcttgtg
+      961 gaaaggacga aacaccgccg cagtacggac agcaagcgtt ttagagctag aaatagcaag
+     1021 ttaaaataag gctagtccgt tatcaacttg aaaaagtggc accgagtcgg tgcttttttt
+     1081 ggatccaatt ctaccgggta ggggaggcgc ttttcccaag gcagtctgga gcatgcgctt
+     1141 tagcagcccc gctgggcact tggcgctaca caagtggcct ctggcctcgc acacattcca
+     1201 catccaccgg taggcgccaa ccggctccgt tctttggtgg ccccttcgcg ccaccttcta
+     1261 ctcctcccct agtcaggaag ttcccccccg ccccgcagct cgcgtcgtgc aggacgtgac
+     1321 aaatggaagt agcacgtctc actagtctcg tgcagatgga cagcaccgct gagcaatgga
+     1381 agcgggtagg cctttggggc agcggccaat agcagctttg ctccttcgct ttctgggctc
+     1441 agaggctggg aaggggtggg tccgggggcg ggctcagggg cgggctcagg ggcggggcgg
+     1501 gcgcccgaag gtcctccgga ggcccggcat tctgcacgct tcaaaagcgc acgtctgccg
+     1561 cgctgttctc ctcttcctca tctccgggcc tttcgacctg catccatcta gatctcgagc
+     1621 agctgaagct taccatgacc gagtacaagc ccacggtgcg cctcgccacc cgcgacgacg
+     1681 tccccagggc cgtacgcacc ctcgccgccg cgttcgccga ctaccccgcc acgcgccaca
+     1741 ccgtcgatcc ggaccgccac atcgagcggg tcaccgagct gcaagaactc ttcctcacgc
+     1801 gcgtcgggct cgacatcggc aaggtgtggg tcgcggacga cggcgccgcg gtggcggtct
+     1861 ggaccacgcc ggagagcgtc gaagcggggg cggtgttcgc cgagatcggc ccgcgcatgg
+     1921 ccgagttgag cggttcccgg ctggccgcgc agcaacagat ggaaggcctc ctggcgccgc
+     1981 accggcccaa ggagcccgcg tggttcctgg ccaccgtcgg cgtctcgccc gaccaccagg
+     2041 gcaagggtct gggcagcgcc gtcgtgctcc ccggagtgga ggcggccgag cgcgccgggg
+     2101 tgcccgcctt cctggagacc tccgcgcccc gcaacctccc cttctacgag cggctcggct
+     2161 tcaccgtcac cgccgacgtc gaggtgcccg aaggaccgcg cacctggtgc atgacccgca
+     2221 agcccggtgc cggcggcggg tccggaggag agggcagagg aagtctccta acatgcggtg
+     2281 acgtggagga gaatcctggc ccaatgaatc gctgctgggc gctcttcctg tctctctgct
+     2341 gctacctgcg tctggtcagc gccgaggggg accccattcc cgaggagctt tatgagatgc
+     2401 tgagtgacca ctcgatccgc tcctttgatg atctccaacg cctgctgcac ggagaccccg
+     2461 gagaggaaga tggggccgag ttggacctga acatgacccg ctcccactct ggaggcgagc
+     2521 tggagagctt ggctcgtgga agaaggagcc tgggttccct gaccattgct gagccggcca
+     2581 tgatcgccga gtgcaagacg cgcaccgagg tgttcgagat ctcccggcgc ctcatagacc
+     2641 gcaccaacgc caacttcctg gtgtggccgc cctgtgtgga ggtgcagcgc tgctccggct
+     2701 gctgcaacaa ccgcaacgtg cagtgccgcc ccacccaggt gcagctgcga cctgtccagg
+     2761 tgagaaagat cgagattgtg cggaagaagc caatctttaa gaaggccacg gtgacgctgg
+     2821 aggatcacct ggcatgcaag tgtgagacag tggcagctgc acggcctgtg acccgaagcc
+     2881 cggggggttc ccaggagcag cgagccaaaa cgccccaaac tcgggtgacc attcggacgg
+     2941 tgcgagtccg ccggcccccc aagggcaagc accggaaatt caagcacacg catgacaaga
+     3001 cggcactgaa ggagaccctt ggagccgcct acccttatga cgtgccagat tatgcctagg
+     3061 cggccgctag gtacctttaa gaccaatgac ttacaaggca gctgtagatc ttagccactt
+     3121 tttaaaagaa acccagcttt cttgtacaaa gttggcatta taagaaagca ttgcttatca
+     3181 atttgttgca acgaacaggt cactatcagt caaaataaaa tcattatttg ccatccagct
+     3241 gatatcccct atagtgagtc gtattacatg gtcatagctg tttcctggca gctctggccc
+     3301 gtgtctcaaa atctctgatg ttacattgca caagataaaa atatatcatc atgaacaata
+     3361 aaactgtctg cttacataaa cagtaataca aggggtgtta tgagccatat tcaacgggaa
+     3421 acgtcgaggc cgcgattaaa ttccaacatg gatgctgatt tatatgggta taaatgggct
+     3481 cgcgataatg tcgggcaatc aggtgcgaca atctatcgct tgtatgggaa gcccgatgcg
+     3541 ccagagttgt ttctgaaaca tggcaaaggt agcgttgcca atgatgttac agatgagatg
+     3601 gtcagactaa actggctgac ggaatttatg cctcttccga ccatcaagca ttttatccgt
+     3661 actcctgatg atgcatggtt actcaccact gcgatccccg gaaaaacagc attccaggta
+     3721 ttagaagaat atcctgattc aggtgaaaat attgttgatg cgctggcagt gttcctgcgc
+     3781 cggttgcatt cgattcctgt ttgtaattgt ccttttaaca gcgatcgcgt atttcgtctc
+     3841 gctcaggcgc aatcacgaat gaataacggt ttggttgatg cgagtgattt tgatgacgag
+     3901 cgtaatggct ggcctgttga acaagtctgg aaagaaatgc ataaactttt gccattctca
+     3961 ccggattcag tcgtcactca tggtgatttc tcacttgata accttatttt tgacgagggg
+     4021 aaattaatag gttgtattga tgttggacga gtcggaatcg cagaccgata ccaggatctt
+     4081 gccatcctat ggaactgcct cggtgagttt tctccttcat tacagaaacg gctttttcaa
+     4141 aaatatggta ttgataatcc tgatatgaat aaattgcagt ttcatttgat gctcgatgag
+     4201 tttttctaat cagaattggt taattggttg taacactggc agagcattac gctgacttga
+     4261 cgggacggcg caagctcatg accaaaatcc cttaacgtga gttacgcgtc gttccactga
+     4321 gcgtcagacc ccgtagaaaa gatcaaagga tcttcttgag atcctttttt tctgcgcgta
+     4381 atctgctgct tgcaaacaaa aaaaccaccg ctaccagcgg tggtttgttt gccggatcaa
+     4441 gagctaccaa ctctttttcc gaaggtaact ggcttcagca gagcgcagat accaaatact
+     4501 gttcttctag tgtagccgta gttaggccac cacttcaaga actctgtagc accgcctaca
+     4561 tacctcgctc tgctaatcct gttaccagtg gctgctgcca gtggcgataa gtcgtgtctt
+     4621 accgggttgg actcaagacg atagttaccg gataaggcgc agcggtcggg ctgaacgggg
+     4681 ggttcgtgca cacagcccag cttggagcga acgacctaca ccgaactgag atacctacag
+     4741 cgtgagctat gagaaagcgc cacgcttccc gaagggagaa aggcggacag gtatccggta
+     4801 agcggcaggg tcggaacagg agagcgcacg agggagcttc cagggggaaa cgcctggtat
+     4861 ctttatagtc ctgtcgggtt tcgccacctc tgacttgagc gtcgattttt gtgatgctcg
+     4921 tcaggggggc ggagcctatg gaaaaacgcc agcaacgcgg cctttttacg gttcctggcc
+     4981 ttttgctggc cttttgctca catgtt
+//
